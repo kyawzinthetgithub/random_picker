@@ -1,0 +1,16 @@
+models:
+  Customer:
+    name: string
+    phone: string
+    address: text
+
+  Product:
+    name: string
+    description: text
+
+  Winner:
+    customer_name: string
+    customer_phone: string
+    customer_address: text
+    product_name: string
+    product_details: text

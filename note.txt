@@ -1,0 +1,247 @@
+@extends('layout.master')
+
+@section('content')
+    <div class="flex justify-center items-center h-[100%]">
+        <a href="{{ route('Upload') }}" class="absolute top-[44%] left-[5%]">
+            <button
+                class="px-8 p-5 border-none rounded-full TwoColorBtn uppercase text-lg tracking-wider text-slate-500">Back</button>
+        </a>
+        <div class="">
+            <div id="sm">
+                <h1 class="mb-10">Random Machine</h1>
+                <div class="group lever">
+                    <button>Start</button>
+                </div>
+                <div class="group">
+                    <div class="reel"></div>
+                    <div class="reel"></div>
+                </div>
+                <p class="msg">Press Start</p>
+                <input type="text" name="cusName" id="cusName"
+                    class="outline-none shadow-none border-none bg-transparent" readonly hidden>
+                <input type="text" name="productName" id="productName"
+                    class="outline-none shadow-none border-none bg-transparent"readonly hidden>
+            </div>
+        </div>
+        <a href="{{ route('goWinnerList') }}" class="absolute top-[44%] right-[5%]">
+            <button type="button"
+                class="px-8 p-5 border-none rounded-full TwoColorBtn uppercase text-lg tracking-wider text-slate-500">Winner
+                List</button>
+        </a>
+    </div>
+@endsection
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Source+Code+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Source Code Pro', monospace;
+}
+
+
+body{
+    height: 100vh;
+    background: linear-gradient(#60a5faf9 50%, rgba(255,255,255,1)50%);
+    overflow:hidden;
+    position: relative;
+}
+
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #60a5faf9;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: #084cdf;
+}
+
+.CusTable::-webkit-scrollbar{
+    width: 3px;
+    background: #60a5faf9;
+}
+
+.CusTable::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+.TwoColorBtn{
+    background: linear-gradient( rgba(255, 255, 255, 1)50%,#60a5faf9 50%);
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.75em;
+    font-weight: normal;
+    color: #bbb;
+}
+
+h1,
+a {
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+#sm {
+    background: rgb(238, 238, 238);
+    background: -moz-linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(238, 238, 238, 1)), color-stop(100%, rgba(204, 204, 204, 1)));
+    background: -webkit-linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    background: -o-linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    background: linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=0);
+
+    width: 540px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+#sm,
+.lever button {
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .25)
+}
+
+.group,
+.reel,
+.lever {
+    display: inline-block;
+}
+
+.group,
+.lever {
+    background: linear-gradient( rgba(255, 255, 255, 1)50%,#60a5faf9 50%);
+}
+
+.group {
+    border-radius: 10px;
+    padding: 20px 0 20px 20px;
+}
+
+.reel {
+    background: #fff;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 50%, rgba(225, 225, 225, 1) 51%, rgba(246, 246, 246, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(241, 241, 241, 1)), color-stop(51%, rgba(225, 225, 225, 1)), color-stop(100%, rgba(246, 246, 246, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 50%, rgba(225, 225, 225, 1) 51%, rgba(246, 246, 246, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 50%, rgba(225, 225, 225, 1) 51%, rgba(246, 246, 246, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 50%, rgba(225, 225, 225, 1) 51%, rgba(246, 246, 246, 1) 100%);
+    background: linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 50%, rgba(225, 225, 225, 1) 51%, rgba(246, 246, 246, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0);
+
+    text-align: center;
+    float: left;
+    padding: 0 10px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3) inset, 0 0px 1px rgba(0, 0, 0, .2) inset;
+}
+
+.reel div {
+    position: relative;
+    top: -48px;
+}
+
+.reel p {
+    font-weight: bold;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.reel p:nth-child(1) {
+    color: #c60
+}
+
+.reel p:nth-child(2) {
+    color: #690
+}
+
+.reel p:nth-child(3) {
+    color: #630
+}
+
+.lever {
+    float: right;
+    padding-right: 20px;
+}
+
+.lever button {
+    text-align: center;
+    border-radius: 10px;
+    line-height: 100px;
+    width: 100px;
+    border: none;
+    font-size: 1.8em;
+    background: rgb(252, 255, 244);
+    background: -moz-linear-gradient(top, rgba(252, 255, 244, 1) 0%, rgba(233, 233, 206, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(252, 255, 244, 1)), color-stop(100%, rgba(233, 233, 206, 1)));
+    background: -webkit-linear-gradient(top, rgba(252, 255, 244, 1) 0%, rgba(233, 233, 206, 1) 100%);
+    background: -o-linear-gradient(top, rgba(252, 255, 244, 1) 0%, rgba(233, 233, 206, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(252, 255, 244, 1) 0%, rgba(233, 233, 206, 1) 100%);
+    background: linear-gradient(top, rgba(252, 255, 244, 1) 0%, rgba(233, 233, 206, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfff4', endColorstr='#e9e9ce', GradientType=0);
+}
+
+.lever button:active {
+    color: #900;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    margin: 2px 0 -2px;
+}
+
+.msg {
+    text-align: center;
+    color: #bbb;
+    font-size: 1.8em;
+    padding: 25px 0 5px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+a {
+    color: #222cff;
+    margin-top: 15px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff4c00
+}
+
+
+
+
+<div class="flex justify-between items-center bg-slate-500 w-3/4 mb-5 p-5 rounded-lg">
+            <h3>Winner List</h3>
+            <div class="ActionGrop flex gap-4 ">
+                <a href="{{route('exportWinnerList')}}" class="text-slate-400">
+                    <button
+                        class="bg-white px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-[#ddd] transition-all duration-400 ease-in-out">Download</button>
+                </a>
+                <a href="" class="text-slate-400">
+
+                    <button
+                        class="bg-white px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-[#ddd] transition-all duration-400 ease-in-out">Print</button>
+                </a>
+                <a href="{{route('clearWinnerTable')}}" class="text-slate-400">
+                    <button
+                        class="bg-white px-3 py-2 rounded-lg hover:bg-blue-500 hover:text-[#ddd] transition-all duration-400 ease-in-out">Clear</button>
+                </a>
+
+            </div>
+        </div>

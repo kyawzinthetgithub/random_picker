@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    color: #490e0e !important;
+}
+
+@media print {
+    header, footer {
+        display: none;
+    }
+
+    table{
+        background: greenyellow;
+    }
+}
+
+@page{
+    margin: 2rem;
+}
+
+body {
+    height: 100vh;
+    background: rgb(120, 0, 0);
+    background: linear-gradient(0deg, rgb(79, 3, 3) 0%, rgb(149, 7, 7) 100%);
+    position: relative;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #490e0e;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.inside_box,
+.table_box {
+    border-radius: 17px;
+    background: rgb(242, 150, 150);
+    background: linear-gradient(
+        0deg,
+        rgba(242, 150, 150, 1) 22%,
+        rgba(241, 235, 235, 1) 91%
+    );
+    transition: all 0.5s;
+}
+.table_box {
+    border-radius: 17px;
+    background: rgb(242, 150, 150);
+    background: linear-gradient(
+        0deg,
+        rgb(239, 198, 198) 22%,
+        rgba(241, 235, 235, 1) 91%
+    );
+    transition: all 0.5s;
+}
+
+.inside_box:hover {
+    box-shadow: 0px 0px 5px 3px rgba(218, 218, 218, 1),
+        0px 0px 5px 3px rgba(255, 255, 255, 1);
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #6d1919;
+}
+
+.CusTable::-webkit-scrollbar {
+    width: 3px;
+    background: transparent;
+}
+
+.CusTable::-webkit-scrollbar-thumb {
+    background: #6d1919;
+}
+
+.TwoColorBtn {
+    background: rgb(242, 150, 150);
+    background: linear-gradient(
+        0deg,
+        rgba(242, 150, 150, 1) 22%,
+        rgba(241, 235, 235, 1) 91%
+    );
+    box-shadow: 0px 0px 3px 3px #c4d4d3;
+}
+
+h1 {
+    text-align: center;
+    color: #490e0e;
+}
+
+#sm {
+    width: 90vw;
+    height: 200px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lever button {
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25);
+}
+
+.group,
+.reel,
+.lever {
+    display: inline-block;
+}
+
+.group {
+    border-radius: 20px;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    margin-bottom: 15px;
+}
+
+.reel {
+    text-align: center;
+    border: 8px solid #490e0e;
+    padding: 0 10px;
+    height: 120px;
+    margin-top: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 20px;
+    min-width: 50%;
+}
+
+.reel div {
+    position: relative;
+    top: -107px;
+}
+
+.reel p {
+    font-weight: bold;
+    height: 46px;
+    margin-top: 35px;
+    font-size: 42px;
+}
+
+.lever {
+    padding-right: 20px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.lever button {
+    background: linear-gradient(
+        0deg,
+        rgba(242, 150, 150, 1) 22%,
+        rgba(241, 235, 235, 1) 91%
+    );
+    text-align: center;
+    border-radius: 20px;
+    border: 8px solid #490e0e !important;
+    line-height: 100px;
+    width: 350px;
+    border: none;
+    font-size: 1.8em;
+}
+
+.lever button:active {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.msg {
+    text-align: center;
+    color: #bbb;
+    font-size: 1.8em;
+    padding: 25px 0 45px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+a {
+    margin-top: 15px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 20px;
+}
+
+.clear_btn {
+    position: relative;
+    float: right;
+    margin-bottom: 8px;
+    padding: 0.5em 1em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    cursor: pointer !important;
+    font-size: 0.88em;
+    line-height: 1.6em;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    background: linear-gradient(
+        to bottom,
+        rgba(230, 230, 230, 0.1) 0%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    user-select: none;
+    text-decoration: none;
+    outline: none;
+    text-overflow: ellipsis;
+}
